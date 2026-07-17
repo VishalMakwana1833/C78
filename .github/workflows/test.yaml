@@ -12,7 +12,12 @@ jobs:
       - ubuntu-latest
     
     steps:
-      - uses: iterative/setup-cml@v1
+      - uses: actions/setup-node@v4
+        with:
+           node-version: 20
+
+      - run: |
+         npm install -g @dvcorg/cml
       - uses: actions/checkout@v3
       - name: Train model
         env:
